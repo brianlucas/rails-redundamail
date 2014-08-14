@@ -1,3 +1,5 @@
+require 'net/http'
+require "uri" 
 class Email < ActiveRecord::Base
   enum provider: [ :all_providers, :mandrill, :mailgun ]
 
