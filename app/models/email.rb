@@ -29,10 +29,11 @@ class Email < ActiveRecord::Base
   
   def mandrill_dispatch
     puts "inside mandrill_dispatch"
-
     uri = URI.parse("https://mandrillapp.com/api/1.0/messages/send.json")
+    puts "done with URI.parse"
     Net::HTTP.start(uri.host, uri.port,
       :use_ssl => uri.scheme == 'https') do |http|
+      puts "Net::HTTP.start"
       request = Net::HTTP::Post.new uri
       body="#{self.body} \r\n- sent via Mandrill"
 
@@ -47,8 +48,9 @@ class Email < ActiveRecord::Base
         }
       }
       request.body = params.to_json
-          
+      puts "http.request"          
       response = http.request request # Net::HTTPResponse object
+      puts "done with http.request"
       puts response.code
       puts response.body
 
