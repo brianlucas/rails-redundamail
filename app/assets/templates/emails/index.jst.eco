@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <div class="form-horizontal">
+        <fieldset>
+          <legend>Redundamail</legend>
+
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">To</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" type="email"  id="to_email" placeholder="Email Address" autocomplete="off" style="cursor: auto; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">From</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" type="email"  id="from_email" placeholder="Email Address" autocomplete="off" style="cursor: auto; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+            </div>
+          </div>
+         <div class="form-group">
+           <label for="inputEmail" class="col-lg-2 control-label">Subject</label>
+           <div class="col-lg-10">
+             <input type="text" class="form-control" id="subject" placeholder="Subject" autocomplete="off" style="cursor: auto; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+           </div>
+         </div>
+          <div class="form-group">
+            <label for="textArea" class="col-lg-2 control-label">Body</label>
+            <div class="col-lg-10">
+              <textarea class="form-control" rows="3" id="body"></textarea>
+              <span class="help-block">Enter the content of your email above.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="select" class="col-lg-2 control-label">Providers</label>
+            <div class="col-lg-10">
+              <select class="form-control" id="provider">
+                <option value="all_providers" selected>Use any available email provider</option>
+                <option value="mandrill">Mandrill</option>
+                <option value="mailgun">Mailgun</option>
+              </select>
+              
+            </div>
+          </div>
+          <div id="not_finished" class="form-group hide has-error has-feedback">
+            <label class="control-label" for="inputError2">Please complete all fields first</label>
+          </div>
+          <div id="errors_found" class="form-group hide has-error has-feedback">
+            <label class="control-label" for="inputError2">Errors were found in the form.  Please check the status of each field and try again.</label>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button class="btn btn-default cancel">Cancel</button>
+              <button class="btn btn-primary submit">Submit</button>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+  </div>
+  <div class="col-lg-4 col-lg-offset-1" id="attempts">
+
+  </div>
+</div>
