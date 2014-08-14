@@ -5,6 +5,7 @@ class Email < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
+  # validations
   validates :to_email,
     :presence => {:message => "Please check your email"},
     :format => { :with => VALID_EMAIL_REGEX, :message=>"Please check the formatting of your email address" }
@@ -12,11 +13,10 @@ class Email < ActiveRecord::Base
     :presence => {:message => "Please check your email"},
     :format => { :with => VALID_EMAIL_REGEX, :message=>"Please check the formatting of your email address" }
 
-    
+  # responsible for sending the email with content in the model
   def dispatch
-    puts "inside dispatch"
     @sent = self.sent ? self.sent : false
-    puts "provider #{provider}"
+
     case provider.to_sym
     when :all_providers
       mandrill_dispatch unless @sent
@@ -29,17 +29,21 @@ class Email < ActiveRecord::Base
     self.update(sent:@sent)
   end
   
+  # TO-DO: Refactor both mandrill and mailgun into single DRY library with unique attributes per mail service
+  
   def mandrill_dispatch
-    puts "inside mandrill_dispatch"
+
+    # Mandrill URL
     uri = URI.parse("https://mandrillapp.com/api/1.0/messages/send.json")
-    puts "done with URI.parse"
+
+    # initiate request
     Net::HTTP.start(uri.host, uri.port,
       :use_ssl => uri.scheme == 'https') do |http|
-      puts "Net::HTTP.start"
+
       request = Net::HTTP::Post.new uri
       body="#{self.body} \r\n- sent via Mandrill"
 
-      ## TO-DO: Remove key and place in secure place
+      ## TO-DO: Remove secure key and place in secure place
       params = {"key" => "b_X4qhErhOzLxdqcpOqCNg",
         "message" => { 
           "html" => body, 
@@ -50,15 +54,17 @@ class Email < ActiveRecord::Base
         }
       }
       request.body = params.to_json
-      puts "http.request"          
+
       response = http.request request # Net::HTTPResponse object
-      puts "done with http.request"
+      # output response
       puts response.code
       puts response.body
 
+      # if we received HTTP 200 it was sent
       if response.code.eql?("200")
         @sent=true
       else
+        # respond back with error
         errors.add(:base, response.body)
       end
     end
@@ -67,25 +73,30 @@ class Email < ActiveRecord::Base
   end
   
   def mailgun_dispatch
-    puts "inside mailgun_dispatch"
-
+    # Mailgun URL
     uri = URI.parse("https://api.mailgun.net/v2/sandbox14629c98dedb4deda8554f17e8aa137e.mailgun.org/messages")
+
+    # initiate request
     Net::HTTP.start(uri.host, uri.port,
       :use_ssl => uri.scheme == 'https') do |http|
+        
       request = Net::HTTP::Post.new uri
       body="#{self.body} \r\n- sent via Mailgun"
 
-      ## TO-DO: Remove key and place in secure place
+      ## TO-DO: Remove secure key and place in secure place
       request.basic_auth("api", "key-92acb01849558bf360aa18812017c9b8")
       request.set_form_data({"text" => body, "subject" => subject, "from" => from_email, "to" => to_email})
   
       response = http.request request # Net::HTTPResponse object
+      # output response
       puts response.code
       puts response.body
-
+      
+      # if we received HTTP 200 it was sent
       if response.code.eql?("200")
         @sent=true
       else
+        # respond back with error
         errors.add(:base, response.body)
       end
 
